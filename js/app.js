@@ -9,7 +9,7 @@
 		$scope.addTodo = function() {
 			$scope.todoList.push({task: $scope.todoInput, completed: false});
 			$scope.todoInput = '';
-		}
+		};
 	});
 
 })( window );
