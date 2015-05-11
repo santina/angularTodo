@@ -5,6 +5,7 @@
 
 	app.controller('todoCtrl', function($scope) {
 		$scope.todoList = [];
+		$scope.isAllCompleted = false;
 
 		$scope.addTodo = function() {
 			var taskNameInput = $scope.todoInput.trim();
@@ -14,10 +15,20 @@
 			};
 		};
 
+		$scope.checkState = function(){
+			var allSelected = true;
+			angular.forEach($scope.todoList, function(task){
+				allSelected = allSelected && task.completed;
+			});
+			$scope.isAllCompleted = allSelected;
+
+		};
+
 		$scope.completeAll = function(){
 			angular.forEach($scope.todoList, function(task){
 				task.completed = $scope.isAllCompleted;
 			});
+
 		};
 
 		$scope.clearCompleted = function() {
