@@ -62,7 +62,14 @@
 		$scope.toggleEditing = function(event) {
 			var clickedTaskId = event.target.parentNode.parentNode.dataset.taskid;
 			$scope.todoList[clickedTaskId].editing = true;
+			//TODO: make it focus
 		};
+
+		$scope.remove = function(event){
+			var clickedTaskId = event.target.parentNode.parentNode.dataset.taskid;
+			delete $scope.todoList[clickedTaskId];
+		}
+
 	});
 
 })( window );
