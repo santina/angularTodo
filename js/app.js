@@ -7,11 +7,18 @@
 		$scope.todoList = [];
 
 		$scope.addTodo = function() {
-			var taskName = $scope.todoInput.trim()
-			if (taskName != '') {
-				$scope.todoList.push({task: taskName, completed: false});
+			var taskNameInput = $scope.todoInput.trim();
+			if (taskNameInput != '') {
+				$scope.todoList.push({taskName: taskNameInput, completed: false});
 				$scope.todoInput = '';
-			}
+			};
+		};
+
+		$scope.completeAll = function(){
+			console.log($scope.isAllCompleted);
+			angular.forEach($scope.todoList, function(task){
+				task.completed = $scope.isAllCompleted;
+			});
 		};
 	});
 
