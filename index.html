@@ -24,10 +24,10 @@
 					<!-- These are here just to show the structure of the list items -->
 					<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
 
-					<li ng-repeat = "x in todoList">
+					<li ng-repeat = "task in todoList">
 						<div class="view">
-							<input class="toggle" type="checkbox" ng-checked="x.completed">
-							<label>{{x.taskName}}</label>
+							<input class="toggle" type="checkbox" ng-model="task.completed">
+							<label>{{task.taskName}}</label>
 							<button class="destroy"></button>
 						</div>
 						<!-- <input class="edit" value=x.task> -->
@@ -37,8 +37,6 @@
 <!-- 					<div ng-repeat="x in todoList">
     				<input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
 					</div>
-
-
 
 					<li class="completed">
 						<div class="view">
@@ -75,7 +73,7 @@
 					</li>
 				</ul>
 				<!-- Hidden if no completed items are left ↓ -->
-				<button id="clear-completed">Clear completed (1)</button>
+				<button id="clear-completed" ng-click="clearCompleted()">Clear completed (<span ng-bind="getNumCompleted()"></span>)</button>
 			</footer>
 		</section>
 		<footer id="info">
