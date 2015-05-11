@@ -1,6 +1,15 @@
 (function( window ) {
 	'use strict';
 
-	// Your starting point. Enjoy the ride!
+	var app = angular.module('myTodoApp', []);
+
+	app.controller('todoCtrl', function($scope) {
+		$scope.todoList = [];
+
+		$scope.addTodo = function() {
+			$scope.todoList.push({task: $scope.todoInput, completed: false});
+			$scope.todoInput = '';
+		}
+	});
 
 })( window );
