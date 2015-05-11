@@ -7,8 +7,11 @@
 		$scope.todoList = [];
 
 		$scope.addTodo = function() {
-			$scope.todoList.push({task: $scope.todoInput, completed: false});
-			$scope.todoInput = '';
+			var taskName = $scope.todoInput.trim()
+			if (taskName != '') {
+				$scope.todoList.push({task: taskName, completed: false});
+				$scope.todoInput = '';
+			}
 		};
 	});
 
