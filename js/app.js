@@ -69,20 +69,31 @@
 			return counter;
 		};
 
-		$scope.toggleEditing = function(event) {
+		$scope.startEditing = function(event) {
 			var clickedTaskId = event.target.parentNode.parentNode.dataset.taskid;
 			$scope.todoList[clickedTaskId].editing = true;
 			//TODO: make it focus
 		};
 
+		$scope.doneEditing = function(event) {
+			var clickedTaskId = event.target.parentNode.dataset.taskid;
+			var task = $scope.todoList[clickedTaskId];
+			task.editing = false;
+			task.taskName = task.newTaskName;
+		};
+
 		$scope.remove = function(event){
 			var clickedTaskId = event.target.parentNode.parentNode.dataset.taskid;
 			delete $scope.todoList[clickedTaskId];
-		}
+		};
 
 		$scope.getLength = function(){
 			return Object.keys($scope.todoList).length;
-		}
+		};
+
+		$scope.doBlur = function(event) {
+			event.target.blur();
+		};
 
 	});
 

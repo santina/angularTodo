@@ -27,10 +27,10 @@
 					<li ng-repeat="(taskId, task) in todoList" data-taskId="{{taskId}}" ng-class="{ 'completed': task.completed, 'editing': task.editing }">
 						<div class="view">
 							<input class="toggle" type="checkbox" ng-model="task.completed" ng-click="checkState()">
-							<label ng-dblclick="toggleEditing($event)">{{task.taskName}}</label>
+							<label ng-dblclick="startEditing($event)">{{task.taskName}}</label>
 							<button class="destroy" ng-click="remove($event)"></button>
 						</div>
-						<input class="edit" ng-model="task.newTaskName" ng-focus="focus=true;blur=false;" ng-blur="blur=true;focus=false;task.editing=false;task.taskName=task.newTaskName;">
+						<input class="edit" ng-model="task.newTaskName" ng-focus="focus=true;blur=false;" ng-blur="doneEditing($event)" ng-keydown="$event.which===13 && doBlur($event)">
 					</li>
 
 				</ul>
