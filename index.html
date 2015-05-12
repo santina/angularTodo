@@ -16,7 +16,7 @@
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
 
-			<section id="main">
+			<section id="main" ng-show="getLength() > 0">
 				<input id="toggle-all" ng-model="isAllCompleted" ng-click="completeAll()" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
 
@@ -36,7 +36,7 @@
 				</ul>
 			</section>
 			<!-- This footer should hidden by default and shown when there are todos -->
-			<footer id="footer">
+			<footer id="footer" ng-show="getLength() > 0">
 				<!-- This should be `0 items left` by default -->
 				<span id="todo-count"><strong>1</strong> item left</span>
 				<!-- Remove this if you don't implement routing -->

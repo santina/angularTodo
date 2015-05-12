@@ -70,6 +70,10 @@
 			delete $scope.todoList[clickedTaskId];
 		}
 
+		$scope.getLength = function(){
+			return Object.keys($scope.todoList).length;
+		}
+
 	});
 
 })( window );
