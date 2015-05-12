@@ -19,11 +19,16 @@
 			if (taskNameInput != '') {
 				var taskId = $scope.createId()
 				$scope.todoList[taskId] = {taskId: taskId, taskName: taskNameInput, 
+					newTaskName : taskNameInput,
 					completed: false, editing: false};
 				$scope.todoInput = '';
 			};
 		};
 
+		/*
+			Check if .toggle-all needs to be checked (setting isAllCompleted to true) or unchecked
+			Evoked whenever a list item (a task) is checked. 
+		*/
 		$scope.checkState = function(){
 			var allSelected = true;
 			angular.forEach($scope.todoList, function(task, taskId){
@@ -32,9 +37,14 @@
 			$scope.isAllCompleted = allSelected;
 		};
 
+		/*
+			Set all task's "completed" status in the todoList{} to true or false
+			when #toggle-all is checked or unchecked 
+		*/
 		$scope.completeAll = function(){
 			angular.forEach($scope.todoList, function(task, taskId){
-				task.completed = $scope.isAllCompleted;
+				//isAllCompleted: false when not checked, true when checked
+				task.completed = $scope.isAllCompleted; 
 			});
 
 		};

@@ -30,7 +30,7 @@
 							<label ng-dblclick="toggleEditing($event)">{{task.taskName}}</label>
 							<button class="destroy" ng-click="remove($event)"></button>
 						</div>
-						<input class="edit" value="{{task.taskName}}">
+						<input class="edit" ng-model="task.newTaskName" ng-focus="focus=true;blur=false;" ng-blur="blur=true;focus=false;task.editing=false;task.taskName=task.newTaskName;">
 					</li>
 
 				</ul>
